@@ -25,6 +25,7 @@ import click
 import helloworld.scripts.cli_utils as cli_utils
 import helloworld.scripts.options as cli_options
 from helloworld.errors import CLIError, APIError
+from helloworld.api.message import create_message
 
 
 def _setup_logger(debug, logfile):
@@ -55,20 +56,19 @@ def cli():
 # Click section for the "update" command
 @cli.command()
 @add_options(cli_options.create_options)
-def custom(message, date, random, logfile, output_file, debug, clobber):
+def custom(name, date, lottery, logfile, output_file, debug, clobber):
     """
     Print a custom Hello message.
     """
     # Setup cli logger
     _logger = _setup_logger(debug, logfile)
 
-    _logger.info("Printing Hello message using custom message '%s'", message)
+    _logger.info("Printing Hello message using custom message '%s'", name)
 
-    if date:
-        _logger.debug("Add date to message")
+    _message = create_message(name, date, lottery)
 
     try:
-        cli_utils.write_message(message, output_file, clobber)
+        cli_utils.write_message(_message, output_file, clobber)
     except CLIError as e:
         print('ERROR: {}'.format(str(e)), file=sys.stderr)
         if logfile or debug:

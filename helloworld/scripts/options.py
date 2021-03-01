@@ -43,8 +43,8 @@ shared_options = {
 #
 create_options = [
     click.option(
-        '-m',
-        '--message',
+        '-n',
+        '--name',
         type=click.STRING,
         required=True,
         help='The custom message to be printed'
@@ -64,7 +64,7 @@ create_options = [
         help='Add a date timestamp to the message'
     ),
     click.option(
-        '--random/--no-random',
+        '--lottery/--no-lottery',
         default=False,
         help='Adds a random number to the message'
     ),
