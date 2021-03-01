@@ -9,6 +9,14 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.bat
+*.exe
+*.ps1
+activate
+Lib
+pyvenv.cfg
+*.egg-info
+helloworld-script.py
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

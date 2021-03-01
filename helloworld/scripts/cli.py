@@ -55,7 +55,7 @@ def cli():
 # Click section for the "update" command
 @cli.command()
 @add_options(cli_options.create_options)
-def custom(message, date, logfile, output_file, debug, clobber):
+def custom(message, date, random, logfile, output_file, debug, clobber):
     """
     Print a custom Hello message.
     """

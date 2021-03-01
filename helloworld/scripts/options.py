@@ -64,9 +64,9 @@ create_options = [
         help='Add a date timestamp to the message'
     ),
     click.option(
-        '--random/--no-date',
+        '--random/--no-random',
         default=False,
-        help='Add a random number to the message'
+        help='Adds a random number to the message'
     ),
     click.option(
         '--clobber/--no-clobber',
