@@ -17,6 +17,7 @@ Lib
 pyvenv.cfg
 *.egg-info
 helloworld-script.py
+.vscode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
