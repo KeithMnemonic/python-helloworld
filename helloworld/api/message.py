@@ -39,13 +39,33 @@ class HelloWorldMessage:
     """
 
     def __init__(self, name, date, lottery):
+        """[summary]
+
+        Args:
+            name ([type]): [description]
+            date ([type]): [description]
+            lottery ([type]): [description]
+        """
         self._message = (f"Hello {name}, ")
         if date:
             _logger.debug("Add date to message")
-            self._date = (f"today is {datetime.datetime.now().strftime('%c')}"
-                          f".")
-            self._message = self._message + self._date
+            self._message += (f"today is "
+                              f"{datetime.datetime.now().strftime('%c')}"
+                              f".")
         if lottery:
             _logger.debug("Add lottery number to message")
-            self._lottery = (f" Your lottery number is {randint(1, 1000)}")
-            self._message = self._message + self._lottery
+            self._message += (f" Your lottery number is {self.lottery_number}")
+
+    def generate_lottery_number(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
+        _lottery_number = (randint(0, 9), randint(0, 9), randint(0, 9))
+        return (f"{_lottery_number[0]}{_lottery_number[1]}"
+                f"{_lottery_number[2]}")
+
+    @property
+    def lottery_number(self):
+        return self.generate_lottery_number()
